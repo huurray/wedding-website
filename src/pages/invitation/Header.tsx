@@ -60,7 +60,7 @@ export default function Header() {
           <AbsoluteDiv
             animate={{ y: isPlaying ? -24 : 0, opacity: isPlaying ? 0 : 1 }}
             transition={animationOptions}
-            style={{ left: 12 }}
+            style={{ left: 13 }}
           >
             <span>음악 켜기</span>
           </AbsoluteDiv>
@@ -70,9 +70,9 @@ export default function Header() {
             className="circle"
           >
             {isPlaying ? (
-              <TbMusicOff size={16} color={theme.colors.gray400} />
+              <TbMusicOff size={15} color={theme.colors.gray400} />
             ) : (
-              <TbMusic size={16} color={theme.colors.gray400} />
+              <TbMusic size={15} color={theme.colors.gray400} />
             )}
           </motion.div>
         </MusicButton>

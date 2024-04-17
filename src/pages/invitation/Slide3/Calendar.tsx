@@ -3,16 +3,20 @@ import styled from "@emotion/styled";
 import dayjs from "dayjs";
 import { useCountUp } from "react-countup";
 import { useTheme } from "@emotion/react";
+// store
+import { useAtomValue } from "jotai";
+import { mainIndexAtom } from "../index";
 // utils
 import { dayOfWeek, getMonth } from "@/utils/calendar";
 
-interface IProps {
+interface Props {
   date: string;
-  active: boolean;
   style?: React.CSSProperties;
 }
-export default function Calendar({ date, active, style }: IProps) {
+export default function Calendar({ date, style }: Props) {
   const theme = useTheme();
+  const mainIndex = useAtomValue(mainIndexAtom);
+  const active = mainIndex === 2;
 
   const countUpRef = useRef(null);
   const dDay = dayjs().diff(dayjs(date), "days");

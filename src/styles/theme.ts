@@ -25,7 +25,7 @@ const colors = {
   beige: "#b59274",
   blue: "#799fd1",
   orange: "#FF7A1A",
-  yellow: "#FFC",
+  yellow: "#ffdf00",
   purple: "#7000FF",
 };
 

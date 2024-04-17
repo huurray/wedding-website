@@ -1,10 +1,11 @@
-import { useState } from "react";
 import styled from "@emotion/styled";
+// store
+import { atom, useSetAtom } from "jotai";
 // components
 import Header from "./Header";
-import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Pagination } from "swiper/modules";
+import ImageViewer from "@/components/ImageViewer";
 import Slide1 from "./Slide1";
 import Slide2 from "./Slide2";
 import Slide3 from "./Slide3";
@@ -14,15 +15,12 @@ import Slide5 from "./Slide5";
 import "swiper/css";
 import "swiper/css/pagination";
 
+export const mainIndexAtom = atom(0);
 export default function InvitationPage() {
-  const [index, setIndex] = useState(0);
+  const setMainIndex = useSetAtom(mainIndexAtom);
 
   return (
-    <Container
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 2 }}
-    >
+    <Container>
       <Header />
       <Swiper
         mousewheel
@@ -31,7 +29,7 @@ export default function InvitationPage() {
         modules={[Pagination, Mousewheel]}
         pagination={{ clickable: true }}
         style={{ width: "100%", height: "100%" }}
-        onSlideChange={(data) => setIndex(data.activeIndex)}
+        onSlideChange={(data) => setMainIndex(data.activeIndex)}
       >
         <SwiperSlide>
           <Slide1 />
@@ -40,7 +38,7 @@ export default function InvitationPage() {
           <Slide2 />
         </SwiperSlide>
         <SwiperSlide>
-          <Slide3 active={index === 2} />
+          <Slide3 />
         </SwiperSlide>
         <SwiperSlide>
           <Slide4 />
@@ -49,11 +47,12 @@ export default function InvitationPage() {
           <Slide5 />
         </SwiperSlide>
       </Swiper>
+      <ImageViewer />
     </Container>
   );
 }
 
-const Container = styled(motion.div)`
+const Container = styled.div`
   max-width: ${({ theme }) => theme.sizes.maxWidth};
   width: 100%;
   height: 100dvh;

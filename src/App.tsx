@@ -1,4 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 // styles
 import { Global, ThemeProvider } from "@emotion/react";
 import theme from "@/styles/theme";
@@ -25,6 +26,16 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <RouterProvider router={router} />
       </ThemeProvider>
+      <Toaster
+        position="bottom-center"
+        toastOptions={{
+          style: {
+            background: "#3a3a44",
+            color: "#f2f2f2",
+            fontSize: 14,
+          },
+        }}
+      />
     </>
   );
 }

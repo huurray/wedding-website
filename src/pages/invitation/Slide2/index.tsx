@@ -1,9 +1,11 @@
 import styled from "@emotion/styled";
+// utils
+import { BRIDE, GROOM } from "@/utils/constants";
 // components
 import { motion } from "framer-motion";
 import { IoMdHeart } from "react-icons/io";
 // assets
-import heroImg from "@/assets/hero.jpg";
+import Image2 from "@/assets/gallery/2.jpg";
 
 export default function Slide2() {
   return (
@@ -26,25 +28,25 @@ export default function Slide2() {
         대단히 감사하겠습니다.
       </h1>
       <Parents style={{ marginBottom: 16 }}>
-        <div>허 환</div>
+        <div>{GROOM.father.fullName}</div>
         <div>·</div>
-        <div>김인숙</div>
+        <div>{GROOM.mother.fullName}</div>
         <div>의</div>
         <div>아들</div>
-        <div>준혁</div>
+        <div>{GROOM.name}</div>
       </Parents>
       <Parents style={{ marginBottom: 40 }}>
-        <div>신우균</div>
+        <div>{BRIDE.father.fullName}</div>
         <div>·</div>
-        <div>양명은</div>
+        <div>{BRIDE.mother.fullName}</div>
         <div>의</div>
         <div>딸</div>
-        <div>승아</div>
+        <div>{BRIDE.name}</div>
       </Parents>
       <Picture>
-        <img src={heroImg} alt="image" />
+        <img src={Image2} alt="image" />
         <IoMdHeart size={13} />
-        <img src={heroImg} alt="image" />
+        <img src={Image2} alt="image" />
       </Picture>
     </Container>
   );

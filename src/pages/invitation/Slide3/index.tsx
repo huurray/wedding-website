@@ -1,25 +1,26 @@
 import styled from "@emotion/styled";
 // utils
-import { copyAddressToClipboard } from "@/utils/tools";
+import { copyToClipboard } from "@/utils/tools";
+import { WEDDING } from "@/utils/constants";
 // components
 import { LuCopy } from "react-icons/lu";
 import Calendar from "./Calendar";
 import Navigation from "./Navigation";
 
-interface IProps {
-  active: boolean;
-}
-export default function Slide3({ active }: IProps) {
+export default function Slide3() {
   return (
     <Container>
       <h2>
-        2024년 8월 25일 일요일, <strong>오전 11시</strong>
+        {WEDDING.fullDate}, <strong>{WEDDING.time}</strong>
       </h2>
-      <h1 style={{ marginBottom: 16 }} onClick={copyAddressToClipboard}>
-        더컨벤션 영등포 웨딩홀 2층, 다이너스티홀
-        <LuCopy size={16} style={{ marginLeft: 5 }} />
+      <h1
+        style={{ marginBottom: 16 }}
+        onClick={() => copyToClipboard(WEDDING.fullAddress)}
+      >
+        {WEDDING.address}
+        <LuCopy size={16} style={{ marginLeft: 5, marginTop: -1.5 }} />
       </h1>
-      <Calendar date="2024-08-25" active={active} />
+      <Calendar date={WEDDING.date} />
       <Navigation />
     </Container>
   );
@@ -40,6 +41,7 @@ const Container = styled.div`
     font-weight: 700;
     display: flex;
     align-items: center;
+    cursor: pointer;
   }
 
   & > h2 {

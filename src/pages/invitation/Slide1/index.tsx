@@ -1,21 +1,44 @@
 import styled from "@emotion/styled";
+import queryString from "query-string";
+// utils
+import { BRIDE, GROOM } from "@/utils/constants";
+// components
+import { motion } from "framer-motion";
 // assets
-import heroImg from "@/assets/hero.jpg";
+import Image2 from "@/assets/gallery/2.jpg";
 
 export default function Slide1() {
+  const { name } = queryString.parse(window.location.search);
+
   return (
-    <Container>
-      <img src={heroImg} alt="hero" />
-      <h1>
-        준혁과 승아의
-        <br />
-        결혼식에 초대합니다.
-      </h1>
+    <Container
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.5 }}
+    >
+      <img src={Image2} alt="hero" />
+      {name ? (
+        <h1>
+          {GROOM.name}과 {BRIDE.name}의
+          <br />
+          결혼식에 {name}님을
+          <br />
+          초대합니다.
+          <br />
+        </h1>
+      ) : (
+        <h1>
+          {GROOM.name}과 {BRIDE.name}의
+          <br />
+          결혼식에 초대합니다.
+          <br />
+        </h1>
+      )}
     </Container>
   );
 }
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   width: 100%;
   height: 100dvh;
   display: flex;
@@ -33,6 +56,5 @@ const Container = styled.div`
     line-height: 28px;
     padding: 24px;
     text-align: center;
-    background-color: #fcfcfc;
   }
 `;

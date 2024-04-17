@@ -1,14 +1,15 @@
 import styled from "@emotion/styled";
+import toast from "react-hot-toast";
 // assets
 import NaverMapIcon from "@/assets/navigation/naver-map.png";
 import KakaoMapIcon from "@/assets/navigation/kakao-map.png";
 import TMapIcon from "@/assets/navigation/t-map.png";
 
 type NavigationType = "naverMap" | "kakaoMap" | "tmap";
-interface IProps {
+interface Props {
   style?: React.CSSProperties;
 }
-export default function Navigation({ style }: IProps) {
+export default function Navigation({ style }: Props) {
   const links = {
     naverMap: {
       app: "nmap://place?id=1241035074&appname=com.example.app",
@@ -36,9 +37,13 @@ export default function Navigation({ style }: IProps) {
       if (links[type].web) {
         window.open(links[type].web, undefined, "noopener, noreferrer");
       } else {
-        alert("모바일 환경에서 이용가능합니다.");
+        toast("모바일 환경에서 이용가능합니다.");
       }
     }
+  }
+
+  function showDetail() {
+    toast("준비중입니다.");
   }
 
   return (
@@ -56,8 +61,8 @@ export default function Navigation({ style }: IProps) {
           <img src={TMapIcon} alt="t-map" />
           <span>티맵</span>
         </Button>
-        <Button type="button">
-          <span>자세한 오시는 길</span>
+        <Button type="button" onClick={showDetail}>
+          <p>자세한 오시는 길</p>
         </Button>
       </Content>
     </Container>
@@ -85,7 +90,7 @@ const Button = styled.button`
   height: 40px;
   display: flex;
   align-items: center;
-  padding: 0 16px;
+  padding: 0 32px;
 
   &:nth-of-type(1),
   &:nth-of-type(2) {
@@ -98,13 +103,18 @@ const Button = styled.button`
   }
 
   & > img {
-    width: 24px;
-    height: 24px;
-    border-radius: 16px;
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
     margin-right: 8px;
   }
 
   & > span {
+    width: 100%;
+    font-size: 12px;
+  }
+
+  & > p {
     width: 100%;
     font-size: 12px;
   }

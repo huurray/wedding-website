@@ -1,12 +1,14 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { useNavigate } from "react-router-dom";
+import queryString from "query-string";
 // styles
 import "./index.css";
 
 export default function InvitationCard() {
   const ticketRef = useRef<HTMLElement>(null);
   const navigate = useNavigate();
+  const { name } = queryString.parse(window.location.search);
 
   useEffect(() => {
     const speed = 3;
@@ -19,7 +21,7 @@ export default function InvitationCard() {
         r.pause();
         o.pause();
         h.pause();
-        navigate("/invitation");
+        navigate(`/invitation${name ? `?name=${name}` : ""}`);
       });
     }
 
@@ -81,20 +83,16 @@ export default function InvitationCard() {
           <p style={{ marginTop: 50, lineHeight: "24px", color: "#fff" }}>
             안녕하세요.
             <br />
-            허준혁님.
+            {name && `${name}님.`}
+            {name && <br />}
+            <br />
+            저희의 결혼식에
+            <br />
+            정중히 초대합니다.
           </p>
-          <div>
-            <p
-              style={{ lineHeight: "24px", textAlign: "right", color: "#fff" }}
-            >
-              저희의 결혼식에
-              <br />
-              초대합니다.
-            </p>
-          </div>
           <aside className="divider">
             <div>
-              <h4>2024년 8월 25일 오전 11시</h4>
+              <h4>2024. 8. 25. Sunday, 11AM</h4>
             </div>
           </aside>
         </section>

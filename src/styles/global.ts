@@ -12,7 +12,7 @@ export default css`
   }
 
   body {
-    background-color: #f2f3ed;
+    background-color: #fcfcfc;
   }
 
   &::-webkit-scrollbar {
