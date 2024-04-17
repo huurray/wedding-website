@@ -9,6 +9,7 @@ import { TbMusic, TbMusicOff } from "react-icons/tb";
 const sound = new Howl({
   src: ["/audio/back-sound.mp3"],
   volume: 0.5,
+  html5: true,
 });
 
 export default function Header() {
@@ -53,19 +54,20 @@ export default function Header() {
           <AbsoluteDiv
             animate={{ y: isPlaying ? 0 : 24, opacity: isPlaying ? 1 : 0 }}
             transition={animationOptions}
-            style={{ left: 38 }}
+            style={{ left: 36 }}
           >
             <span>음악 끄기</span>
           </AbsoluteDiv>
           <AbsoluteDiv
             animate={{ y: isPlaying ? -24 : 0, opacity: isPlaying ? 0 : 1 }}
             transition={animationOptions}
-            style={{ left: 13 }}
+            style={{ left: 14 }}
           >
             <span>음악 켜기</span>
           </AbsoluteDiv>
           <motion.div
-            animate={{ x: isPlaying ? 0 : 60 }}
+            style={{ left: 0 }}
+            animate={{ x: isPlaying ? 4 : 66 }}
             transition={animationOptions}
             className="circle"
           >
@@ -99,7 +101,7 @@ const Content = styled.div`
 `;
 
 const MusicButton = styled.button`
-  width: 96px;
+  width: 94px;
   height: 32px;
   border-radius: 99px;
   background: ${({ theme }) => theme.colors.gray50};
@@ -107,8 +109,6 @@ const MusicButton = styled.button`
   display: flex;
   align-items: center;
   overflow: hidden;
-  gap: 6px;
-  margin-left: auto;
 
   & > .circle {
     width: 24px;

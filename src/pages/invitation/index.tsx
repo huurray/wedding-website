@@ -60,8 +60,9 @@ const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.background};
 
   .swiper-pagination {
-    top: 95%;
-    right: 18px;
+    top: unset;
+    bottom: -8px;
+    right: 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;

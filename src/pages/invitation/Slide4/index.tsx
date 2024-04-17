@@ -63,7 +63,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 20px 40px;
 `;
 
 const Grid = styled.div`

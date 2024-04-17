@@ -229,14 +229,6 @@ const Container = styled.div`
   }
 `;
 
-const Copyright = styled.div`
-  position: absolute;
-  bottom: 18px;
-  left: 20px;
-  font-size: 12px;
-  line-height: 28px;
-`;
-
 const AccordionContent = styled.div`
   display: flex;
   align-items: center;
@@ -281,9 +273,14 @@ const AccordionContent = styled.div`
       border: ${({ theme }) => `1px solid ${theme.colors.gray200}`};
       border-radius: 4px;
 
+      & > svg {
+        min-width: 12px;
+      }
+
       & > span {
         font-size: 13px;
         margin-left: 3px;
+        white-space: nowrap;
       }
     }
   }
@@ -291,4 +288,12 @@ const AccordionContent = styled.div`
   &:last-of-type {
     margin-bottom: 8px;
   }
+`;
+
+const Copyright = styled.div`
+  position: absolute;
+  bottom: 12px;
+  left: 20px;
+  font-size: 12px;
+  line-height: 28px;
 `;
