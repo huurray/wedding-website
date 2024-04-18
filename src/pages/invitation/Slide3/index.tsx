@@ -13,12 +13,9 @@ export default function Slide3() {
       <h2>
         {WEDDING.fullDate}, <strong>{WEDDING.time}</strong>
       </h2>
-      <h1
-        style={{ marginBottom: 16 }}
-        onClick={() => copyToClipboard(WEDDING.fullAddress)}
-      >
+      <h1 onClick={() => copyToClipboard(WEDDING.fullAddress)}>
         {WEDDING.address}
-        <LuCopy size={16} style={{ marginLeft: 5, marginTop: -1.5 }} />
+        <LuCopy size={14} style={{ marginLeft: 4, marginTop: 1 }} />
       </h1>
       <Calendar date={WEDDING.date} />
       <Navigation />
@@ -35,7 +32,7 @@ const Container = styled.div`
   align-items: center;
 
   & > h1 {
-    font-size: 18px;
+    font-size: 17px;
     line-height: 32px;
     text-align: center;
     font-weight: 700;
@@ -46,7 +43,7 @@ const Container = styled.div`
 
   & > h2 {
     font-size: 16px;
-    line-height: 32px;
+    line-height: 24px;
     text-align: center;
     font-weight: 500;
 

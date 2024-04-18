@@ -62,7 +62,7 @@ export default function Navigation({ style }: Props) {
           <span>티맵</span>
         </Button>
         <Button type="button" onClick={showDetail}>
-          <p>자세한 오시는 길</p>
+          <span>자세한 오시는 길</span>
         </Button>
       </Content>
     </Container>
@@ -77,7 +77,7 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-  width: 322px;
+  width: 300px;
   border: ${({ theme }) => `1px solid ${theme.colors.gray200}`};
   border-radius: 8px;
   display: flex;
@@ -86,11 +86,11 @@ const Content = styled.div`
 `;
 
 const Button = styled.button`
-  width: 160px;
-  height: 40px;
+  width: 148px;
+  height: 38px;
   display: flex;
   align-items: center;
-  padding: 0 32px;
+  padding: 0 28px;
 
   &:nth-of-type(1),
   &:nth-of-type(2) {
@@ -112,10 +112,6 @@ const Button = styled.button`
   & > span {
     width: 100%;
     font-size: 12px;
-  }
-
-  & > p {
-    width: 100%;
-    font-size: 12px;
+    font-weight: 500;
   }
 `;

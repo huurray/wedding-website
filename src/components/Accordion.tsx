@@ -21,12 +21,9 @@ export default function Accordion({
     <Container style={style}>
       <div className="header" onClick={onClick}>
         <p>{title}</p>
-        <motion.div
-          style={{ display: "inline-block" }}
-          animate={{ rotate: isOpen ? 180 : 0 }}
-        >
+        <AbsoluteDiv animate={{ rotate: isOpen ? 180 : 0, y: isOpen ? -2 : 0 }}>
           <FiChevronDown />
-        </motion.div>
+        </AbsoluteDiv>
       </div>
       <AnimatePresence>
         {isOpen && (
@@ -45,26 +42,34 @@ export default function Accordion({
 }
 
 const Container = styled.div`
-  width: 320px;
+  width: 300px;
 
   & > .header {
     height: 40px;
-    padding: 0 8px;
+    padding: 0 12px;
     border: ${({ theme }) => `1px solid ${theme.colors.gray200}`};
     border-radius: 4px;
     display: flex;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     cursor: pointer;
+    position: relative;
 
     & > p {
       width: 100%;
       font-size: 15px;
       text-align: center;
+      font-weight: 500;
     }
   }
 
   & > .content {
     overflow: hidden;
   }
+`;
+
+const AbsoluteDiv = styled(motion.div)`
+  position: absolute;
+  top: 12px;
+  right: 10px;
 `;

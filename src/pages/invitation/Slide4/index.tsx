@@ -63,11 +63,11 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 40px;
+  padding: 20px;
 `;
 
 const Grid = styled.div`
-  column-count: 3;
+  column-count: 4;
   column-gap: 8px;
 
   & > div {

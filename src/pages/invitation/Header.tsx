@@ -93,7 +93,7 @@ const Container = styled.div`
 
 const Content = styled.div`
   max-width: ${({ theme }) => theme.sizes.maxWidth};
-  padding: 20px 24px;
+  padding: 18px 20px;
   display: flex;
   align-items: center;
   justify-content: flex-end;

@@ -54,7 +54,7 @@ const Container = styled(motion.div)`
   & > h1 {
     font-size: 16px;
     line-height: 28px;
-    padding: 24px;
+    padding: 24px 24px 0;
     text-align: center;
   }
 `;

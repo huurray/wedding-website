@@ -27,7 +27,7 @@ export default function Slide2() {
         <br />
         대단히 감사하겠습니다.
       </h1>
-      <Parents style={{ marginBottom: 16 }}>
+      <Parents style={{ marginBottom: 12 }}>
         <div>{GROOM.father.fullName}</div>
         <div>·</div>
         <div>{GROOM.mother.fullName}</div>
@@ -35,7 +35,7 @@ export default function Slide2() {
         <div>아들</div>
         <div>{GROOM.name}</div>
       </Parents>
-      <Parents style={{ marginBottom: 40 }}>
+      <Parents style={{ marginBottom: 32 }}>
         <div>{BRIDE.father.fullName}</div>
         <div>·</div>
         <div>{BRIDE.mother.fullName}</div>
@@ -66,7 +66,7 @@ const Container = styled.div`
 
   & > h1 {
     font-size: 16px;
-    line-height: 32px;
+    line-height: 26px;
     text-align: center;
   }
 `;
@@ -102,7 +102,9 @@ const Picture = styled.div`
   gap: 8px;
 
   & > img {
-    width: 152px;
+    width: 130px;
+    height: 168px;
+    object-fit: cover;
     border-radius: 12px;
   }
 `;

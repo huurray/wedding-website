@@ -22,15 +22,15 @@ export default function Slide5() {
 
   return (
     <Container>
-      <h1 style={{ marginBottom: 24 }}>마음 전하실 곳</h1>
-      <p style={{ marginBottom: 16 }}>
+      <h1 style={{ marginBottom: 16 }}>마음 전하실 곳</h1>
+      <p style={{ marginBottom: 12 }}>
         직접 축하를 전하지 못하는 분들을 위해
         <br />
         계좌번호를 기재하였습니다.
         <br />
         넓은 마음으로 양해 부탁드립니다.
       </p>
-      <p style={{ marginBottom: 24 }}>
+      <p style={{ marginBottom: 20 }}>
         전해주시는 진심은 소중하게 간직하여
         <br />
         좋은 부부의 모습으로 보답하겠습니다.
@@ -61,7 +61,7 @@ export default function Slide5() {
               className="copy"
               onClick={() => copyToClipboard(GROOM.account)}
             >
-              <LuCopy size={13} />
+              <LuCopy size={12} />
               <span>복사</span>
             </button>
           </div>
@@ -74,20 +74,22 @@ export default function Slide5() {
             <p>{GROOM.father.account}</p>
           </div>
           <div className="right">
-            <a
-              href={GROOM.father.kakaoAccountLink}
-              className="kakao-pay"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <img src={kakaoPayLogo} alt="kakao-pay-logo" />
-            </a>
+            {GROOM.father.kakaoAccountLink && (
+              <a
+                href={GROOM.father.kakaoAccountLink}
+                className="kakao-pay"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <img src={kakaoPayLogo} alt="kakao-pay-logo" />
+              </a>
+            )}
             <button
               type="button"
               className="copy"
               onClick={() => copyToClipboard(GROOM.father.account)}
             >
-              <LuCopy size={13} />
+              <LuCopy size={12} />
               <span>복사</span>
             </button>
           </div>
@@ -100,20 +102,22 @@ export default function Slide5() {
             <p>{GROOM.mother.account}</p>
           </div>
           <div className="right">
-            <a
-              href={GROOM.mother.kakaoAccountLink}
-              className="kakao-pay"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <img src={kakaoPayLogo} alt="kakao-pay-logo" />
-            </a>
+            {GROOM.mother.kakaoAccountLink && (
+              <a
+                href={GROOM.mother.kakaoAccountLink}
+                className="kakao-pay"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <img src={kakaoPayLogo} alt="kakao-pay-logo" />
+              </a>
+            )}
             <button
               type="button"
               className="copy"
               onClick={() => copyToClipboard(GROOM.mother.account)}
             >
-              <LuCopy size={13} />
+              <LuCopy size={12} />
               <span>복사</span>
             </button>
           </div>
@@ -145,7 +149,7 @@ export default function Slide5() {
               className="copy"
               onClick={() => copyToClipboard(BRIDE.account)}
             >
-              <LuCopy size={13} />
+              <LuCopy size={12} />
               <span>복사</span>
             </button>
           </div>
@@ -158,20 +162,22 @@ export default function Slide5() {
             <p>{BRIDE.father.account}</p>
           </div>
           <div className="right">
-            <a
-              href={BRIDE.father.kakaoAccountLink}
-              className="kakao-pay"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <img src={kakaoPayLogo} alt="kakao-pay-logo" />
-            </a>
+            {BRIDE.father.kakaoAccountLink && (
+              <a
+                href={BRIDE.father.kakaoAccountLink}
+                className="kakao-pay"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <img src={kakaoPayLogo} alt="kakao-pay-logo" />
+              </a>
+            )}
             <button
               type="button"
               className="copy"
               onClick={() => copyToClipboard(BRIDE.father.account)}
             >
-              <LuCopy size={13} />
+              <LuCopy size={12} />
               <span>복사</span>
             </button>
           </div>
@@ -184,20 +190,22 @@ export default function Slide5() {
             <p>{BRIDE.mother.account}</p>
           </div>
           <div className="right">
-            <a
-              href={BRIDE.mother.kakaoAccountLink}
-              className="kakao-pay"
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              <img src={kakaoPayLogo} alt="kakao-pay-logo" />
-            </a>
+            {BRIDE.mother.kakaoAccountLink && (
+              <a
+                href={BRIDE.mother.kakaoAccountLink}
+                className="kakao-pay"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <img src={kakaoPayLogo} alt="kakao-pay-logo" />
+              </a>
+            )}
             <button
               type="button"
               className="copy"
               onClick={() => copyToClipboard(BRIDE.mother.account)}
             >
-              <LuCopy size={13} />
+              <LuCopy size={12} />
               <span>복사</span>
             </button>
           </div>
@@ -218,13 +226,14 @@ const Container = styled.div`
 
   & > h1 {
     font-size: 18px;
-    line-height: 32px;
+    line-height: 28px;
     text-align: center;
+    font-weight: 700;
   }
 
   & > p {
     font-size: 15px;
-    line-height: 28px;
+    line-height: 26px;
     text-align: center;
   }
 `;
@@ -232,7 +241,7 @@ const Container = styled.div`
 const AccordionContent = styled.div`
   display: flex;
   align-items: center;
-  padding: 12px;
+  padding: 8px;
 
   & > .left {
     width: 100%;
@@ -252,15 +261,16 @@ const AccordionContent = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 60px;
-      height: 28px;
+      width: 62px;
+      height: 25px;
       background-color: ${({ theme }) => theme.colors.yellow};
       border-radius: 4px;
       margin-bottom: 4px;
 
       & > img {
-        width: 38px;
-        margin-left: 4px;
+        width: 32px;
+        margin-left: 2px;
+        margin-top: 1px;
       }
     }
 
@@ -268,8 +278,8 @@ const AccordionContent = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 60px;
-      height: 28px;
+      width: 62px;
+      height: 25px;
       border: ${({ theme }) => `1px solid ${theme.colors.gray200}`};
       border-radius: 4px;
 
@@ -278,8 +288,9 @@ const AccordionContent = styled.div`
       }
 
       & > span {
-        font-size: 13px;
+        font-size: 12px;
         margin-left: 3px;
+        margin-top: 1px;
         white-space: nowrap;
       }
     }

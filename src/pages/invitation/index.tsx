@@ -61,7 +61,7 @@ const Container = styled.div`
 
   .swiper-pagination {
     top: unset;
-    bottom: -8px;
+    bottom: 0;
     right: 20px;
     display: flex;
     flex-direction: column;
@@ -69,17 +69,17 @@ const Container = styled.div`
   }
 
   .swiper-pagination-bullet {
-    width: 20px;
+    width: 16px;
     height: 2px;
     border-radius: 0;
     background-color: ${({ theme }) => theme.colors.gray700};
     opacity: 0.6;
-    margin: 5px 0 !important;
+    margin: 3px 0 !important;
     transition: all 0.3s ease-in-out;
   }
 
   .swiper-pagination-bullet-active {
-    width: 40px;
+    width: 32px;
     opacity: 1;
   }
 `;
