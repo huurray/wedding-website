@@ -11,7 +11,7 @@ export default function InvitationCard() {
   const { name } = queryString.parse(window.location.search);
 
   useEffect(() => {
-    const speed = 3;
+    const speed = 2.3;
     const r = gsap.timeline({ repeat: -1 });
     const o = gsap.timeline({ repeat: -1 });
     const h = gsap.timeline({ repeat: -1 });

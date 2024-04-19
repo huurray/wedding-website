@@ -1,10 +1,13 @@
 import styled from "@emotion/styled";
+import { useEffect, useState } from "react";
 // store
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import { ImageViewerAtom } from "@/components/ImageViewer";
+import { mainIndexAtom } from "../index";
+// components
+import { motion, useAnimationControls } from "framer-motion";
 // assets
 import Image1 from "@/assets/gallery/1.jpg";
-// import Image2 from "@/assets/gallery/2.jpg";
 import Image3 from "@/assets/gallery/3.jpg";
 import Image4 from "@/assets/gallery/4.jpg";
 import Image5 from "@/assets/gallery/5.jpg";
@@ -19,39 +22,64 @@ import Image13 from "@/assets/gallery/13.jpg";
 import Image14 from "@/assets/gallery/14.jpg";
 import Image15 from "@/assets/gallery/15.jpg";
 
+const images = [
+  Image1,
+  Image3,
+  Image4,
+  Image5,
+  Image6,
+  Image7,
+  Image8,
+  Image9,
+  Image10,
+  Image11,
+  Image12,
+  Image13,
+  Image14,
+  Image15,
+];
+const horizontalIndexes = [2, 4, 9, 11];
 export default function Slide4() {
-  const images = [
-    Image1,
-    // Image2, 히어로로 사용하여 제외.
-    Image3,
-    Image4,
-    Image5,
-    Image6,
-    Image7,
-    Image8,
-    Image9,
-    Image10,
-    Image11,
-    Image12,
-    Image13,
-    Image14,
-    Image15,
-  ];
-
+  const controls = useAnimationControls();
+  const mainIndex = useAtomValue(mainIndexAtom);
   const [imageViewer, setImageViewer] = useAtom(ImageViewerAtom);
+
+  const [init, setInit] = useState(false);
+
+  const active = mainIndex === 3;
 
   function handleClick(index: number) {
     setImageViewer({ index, show: !imageViewer.show });
   }
 
+  useEffect(() => {
+    if (init) return;
+    if (active) {
+      controls.start({ y: [70, 0], opacity: [0, 1] });
+      setInit(true);
+    }
+  }, [active, init]);
+
   return (
     <Container>
       <Grid>
-        {images.map((image, i) => (
-          <div key={i} onClick={() => handleClick(i)}>
-            <img src={image} alt={`image-${i + 1}`} />
-          </div>
-        ))}
+        {images.map((image, i) => {
+          const isHorizontal = horizontalIndexes.includes(i);
+          return (
+            <motion.div
+              key={i}
+              animate={controls}
+              onClick={() => handleClick(i)}
+              transition={{ duration: 0.12 * (i + 1) }}
+            >
+              <img
+                src={image}
+                alt={`image-${i + 1}`}
+                style={{ height: isHorizontal ? 60 : 127 }}
+              />
+            </motion.div>
+          );
+        })}
       </Grid>
     </Container>
   );
@@ -63,12 +91,12 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
 `;
 
 const Grid = styled.div`
-  column-count: 4;
+  column-count: 3;
   column-gap: 8px;
+  margin-bottom: -8px;
 
   & > div {
     break-inside: avoid;

@@ -16,10 +16,12 @@ interface Props {
 export default function Calendar({ date, style }: Props) {
   const theme = useTheme();
   const mainIndex = useAtomValue(mainIndexAtom);
-  const active = mainIndex === 2;
 
   const countUpRef = useRef(null);
+
   const dDay = dayjs().diff(dayjs(date), "days");
+  const active = mainIndex === 2;
+
   const { start } = useCountUp({
     ref: countUpRef,
     start: 0,
@@ -44,7 +46,18 @@ export default function Calendar({ date, style }: Props) {
       <DayOfWeek>
         {dayOfWeek.map((day, i) => (
           <div key={i}>
-            <div>{day}</div>
+            <div
+              style={{
+                color:
+                  i === 0
+                    ? theme.colors.beige
+                    : i === 6
+                    ? theme.colors.blue
+                    : undefined,
+              }}
+            >
+              {day}
+            </div>
           </div>
         ))}
       </DayOfWeek>

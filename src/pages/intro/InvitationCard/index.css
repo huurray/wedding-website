@@ -59,13 +59,13 @@
   background-image: linear-gradient(
     -70deg,
     transparent 40.5%,
-    rgba(255, 255, 255, 0.5) 40.5%,
+    rgba(255, 255, 255, 0.1) 40.5%,
     transparent
   );
   background-size: 200% 200%;
   background-position: var(--p) var(--p);
   z-index: 5;
-  opacity: calc(var(--o) + 0.5);
+  opacity: calc(var(--o) + 0.3);
   pointer-events: none;
 }
 

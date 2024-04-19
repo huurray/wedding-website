@@ -39,3 +39,24 @@ export const BRIDE = {
     kakaoAccountLink: "https://qr.kakaopay.com/Ej8pGgC5h",
   },
 };
+
+export const NAVIGATION = {
+  naverMap: {
+    app: "nmap://place?id=1241035074&appname=com.example.app",
+    web: "https://map.naver.com/p/entry/place/1241035074?placePath=%2Fhome&c=15.00,0,0,0,dh",
+  },
+  kakaoMap: {
+    app: "kakaomap://place?id=871883439",
+    web: "https://map.kakao.com/?map_type=TYPE_MAP&itemId=871883439&urlLevel=3&urlX=477623&urlY=1118680",
+  },
+  tmap: {
+    app: `tmap://route?rGoX=126.89877421551711&rGoY=37.5266837935539&rGoName=더컨벤션 영등포`,
+    web: "",
+  },
+};
+
+export const SHARE_INFO = {
+  title: "허준혁 ❤️ 신승아 결혼합니다.",
+  text: "당신을 정중히 초대합니다.",
+  url: "https://wedding-web-3f573.web.app",
+};

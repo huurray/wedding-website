@@ -3,12 +3,16 @@ import { useTheme } from "@emotion/react";
 import { motion } from "framer-motion";
 import styled from "@emotion/styled";
 import { Howl } from "howler";
+import toast from "react-hot-toast";
+// utils
+import { SHARE_INFO } from "@/utils/constants";
 // assets
 import { TbMusic, TbMusicOff } from "react-icons/tb";
+import { LuShare } from "react-icons/lu";
 
 const sound = new Howl({
   src: ["/audio/back-sound.mp3"],
-  volume: 0.5,
+  volume: 0.7,
   html5: true,
 });
 
@@ -31,6 +35,14 @@ export default function Header() {
       sound?.pause();
     } else if (document.visibilityState === "visible") {
       sound?.play();
+    }
+  }
+
+  async function share() {
+    if (navigator?.share) {
+      await navigator.share(SHARE_INFO);
+    } else {
+      toast("링크가 클립보드에 복사되었습니다.");
     }
   }
 
@@ -78,6 +90,9 @@ export default function Header() {
             )}
           </motion.div>
         </MusicButton>
+        <ShareButton type="button" onClick={share}>
+          <LuShare size={16} color={theme.colors.gray400} />
+        </ShareButton>
       </Content>
     </Container>
   );
@@ -104,11 +119,12 @@ const MusicButton = styled.button`
   width: 94px;
   height: 32px;
   border-radius: 99px;
-  background: ${({ theme }) => theme.colors.gray50};
+  background-color: ${({ theme }) => theme.colors.gray50};
   position: relative;
   display: flex;
   align-items: center;
   overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.01), 0 1px 1px rgba(0, 0, 0, 0.05);
 
   & > .circle {
     width: 24px;
@@ -132,4 +148,16 @@ const AbsoluteDiv = styled(motion.div)`
     white-space: nowrap;
     font-size: 12px;
   }
+`;
+
+const ShareButton = styled.button`
+  width: 32px;
+  height: 32px;
+  background-color: ${({ theme }) => theme.colors.white};
+  border-radius: 16px;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 1px rgba(0, 0, 0, 0.1);
 `;
