@@ -124,7 +124,7 @@ const MusicButton = styled.button`
   display: flex;
   align-items: center;
   overflow: hidden;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.01), 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.01), 0 1px 1px rgba(0, 0, 0, 0.03);
 
   & > .circle {
     width: 24px;
@@ -159,5 +159,5 @@ const ShareButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02), 0 1px 1px rgba(0, 0, 0, 0.03);
 `;

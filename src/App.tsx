@@ -1,7 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-// hooks
-import { useKakaoExternal } from "./hooks/useKakaoExternal";
 // styles
 import { Global, ThemeProvider } from "@emotion/react";
 import theme from "@/styles/theme";
@@ -22,7 +20,6 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
-  useKakaoExternal();
   return (
     <>
       <Global styles={global} />

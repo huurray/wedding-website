@@ -57,6 +57,6 @@ export const NAVIGATION = {
 
 export const SHARE_INFO = {
   title: "허준혁 ❤️ 신승아 결혼합니다.",
-  text: "당신을 정중히 초대합니다.",
+  text: "",
   url: "https://wedding-web-3f573.web.app",
 };

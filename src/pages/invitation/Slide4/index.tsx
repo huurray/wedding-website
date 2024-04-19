@@ -75,7 +75,7 @@ export default function Slide4() {
               <img
                 src={image}
                 alt={`image-${i + 1}`}
-                style={{ height: isHorizontal ? 60 : 127 }}
+                style={{ width: 92, height: isHorizontal ? 60 : 127 }}
               />
             </motion.div>
           );
@@ -106,6 +106,7 @@ const Grid = styled.div`
       width: 100%;
       height: auto;
       border-radius: 8px;
+      object-fit: cover;
     }
   }
 `;
