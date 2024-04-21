@@ -10,7 +10,7 @@ export function useShare(shareInfo: Props) {
     if (navigator?.share) {
       await navigator.share(shareInfo);
     } else {
-      toast("링크가 클립보드에 복사되었습니다.");
+      toast("공유 링크가 복사되었습니다.");
     }
   }
 

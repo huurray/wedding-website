@@ -2,6 +2,9 @@ import styled from "@emotion/styled";
 import toast from "react-hot-toast";
 // utils
 import { NAVIGATION } from "@/utils/constants";
+// store
+import { useSetAtom } from "jotai";
+import { isDetailWayModalOpenAtom } from "@/components/DetailWayModal";
 // assets
 import NaverMapIcon from "@/assets/navigation/naver-map.png";
 import KakaoMapIcon from "@/assets/navigation/kakao-map.png";
@@ -12,6 +15,8 @@ interface Props {
   style?: React.CSSProperties;
 }
 export default function Navigation({ style }: Props) {
+  const setIsOpen = useSetAtom(isDetailWayModalOpenAtom);
+
   function navigateMap(type: NavigationType) {
     const isMobile =
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -30,7 +35,7 @@ export default function Navigation({ style }: Props) {
   }
 
   function showDetail() {
-    toast("준비중입니다.");
+    setIsOpen(true);
   }
 
   return (

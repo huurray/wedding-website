@@ -6,6 +6,7 @@ import Header from "./Header";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Pagination } from "swiper/modules";
 import ImageViewer from "@/components/ImageViewer";
+import DetailWayModal from "@/components/DetailWayModal";
 import Slide1 from "./Slide1";
 import Slide2 from "./Slide2";
 import Slide3 from "./Slide3";
@@ -21,6 +22,8 @@ export default function InvitationPage() {
 
   return (
     <Container>
+      <ImageViewer />
+      <DetailWayModal />
       <Header />
       <Swiper
         mousewheel
@@ -47,7 +50,6 @@ export default function InvitationPage() {
           <Slide5 />
         </SwiperSlide>
       </Swiper>
-      <ImageViewer />
     </Container>
   );
 }
