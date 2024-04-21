@@ -13,8 +13,6 @@ export default function Slide1() {
   const { name } = queryString.parse(window.location.search);
   const [isLoading, setIsLoading] = useState(true);
 
-  console.log(isLoading);
-
   return (
     <Container
       initial={{ opacity: 0 }}

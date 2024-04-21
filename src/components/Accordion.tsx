@@ -9,6 +9,7 @@ interface Props {
   onClick?: () => void;
   children?: React.ReactNode;
   style?: React.CSSProperties;
+  headerStyle?: React.CSSProperties;
 }
 export default function Accordion({
   title,
@@ -16,10 +17,11 @@ export default function Accordion({
   onClick,
   children,
   style,
+  headerStyle,
 }: Props) {
   return (
     <Container style={style}>
-      <div className="header" onClick={onClick}>
+      <div className="header" onClick={onClick} style={headerStyle}>
         <p>{title}</p>
         <AbsoluteDiv animate={{ rotate: isOpen ? 180 : 0, y: isOpen ? -2 : 0 }}>
           <FiChevronDown />

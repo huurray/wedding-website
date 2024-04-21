@@ -23,7 +23,7 @@ export default function Slide3() {
   useEffect(() => {
     if (init) return;
     if (active) {
-      controls.start({ y: [-70, 0], opacity: [0, 1] });
+      controls.start({ y: [70, 0], opacity: [0, 1] });
       setInit(true);
     }
   }, [active, init]);

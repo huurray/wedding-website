@@ -7,7 +7,6 @@ export const isDetailWayModalOpenAtom = atom(false);
 export default function DetailWayModal() {
   const [isOpen, setIsOpen] = useAtom(isDetailWayModalOpenAtom);
 
-  console.log(isOpen);
   return (
     <Modal isOpen={isOpen} close={() => setIsOpen(false)}>
       <Container>

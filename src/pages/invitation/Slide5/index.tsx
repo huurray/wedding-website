@@ -33,7 +33,7 @@ export default function Slide5() {
   useEffect(() => {
     if (init) return;
     if (active) {
-      controls.start({ x: [-70, 0], opacity: [0, 1] });
+      controls.start({ y: [70, 0], opacity: [0, 1] });
       setInit(true);
     }
   }, [active, init]);
@@ -59,7 +59,6 @@ export default function Slide5() {
           좋은 부부의 모습으로 보답하겠습니다.
         </p>
       </motion.div>
-
       <motion.div animate={controls} transition={{ duration: 0.9 }}>
         <Accordion
           title="신랑측"
