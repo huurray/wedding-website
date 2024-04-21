@@ -5,6 +5,7 @@ import App from "./App";
 import { initializeApp } from "firebase/app";
 // styles
 import "@/styles/reset.css";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,

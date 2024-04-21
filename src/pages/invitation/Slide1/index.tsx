@@ -1,14 +1,19 @@
+import { useState } from "react";
 import styled from "@emotion/styled";
 import queryString from "query-string";
 // utils
 import { BRIDE, GROOM } from "@/utils/constants";
 // components
+import Skeleton from "react-loading-skeleton";
 import { motion } from "framer-motion";
 // assets
 import Image2 from "@/assets/gallery/2.jpg";
 
 export default function Slide1() {
   const { name } = queryString.parse(window.location.search);
+  const [isLoading, setIsLoading] = useState(true);
+
+  console.log(isLoading);
 
   return (
     <Container
@@ -16,7 +21,17 @@ export default function Slide1() {
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
     >
-      <img src={Image2} alt="hero" />
+      <ImageContainer>
+        {isLoading && (
+          <Skeleton
+            width={262}
+            height={393}
+            borderRadius={8}
+            style={{ position: "absolute" }}
+          />
+        )}
+        <img src={Image2} alt="hero" onLoad={() => setIsLoading(false)} />
+      </ImageContainer>
       {name ? (
         <h1>
           {GROOM.name}과 {BRIDE.name}의
@@ -46,15 +61,26 @@ const Container = styled(motion.div)`
   justify-content: center;
   align-items: center;
 
-  & > img {
-    width: 70%;
-    border-radius: 8px;
-  }
-
   & > h1 {
     font-size: 16px;
     line-height: 28px;
     padding: 24px 24px 0;
     text-align: center;
+  }
+`;
+
+const ImageContainer = styled.div`
+  width: 262px;
+  height: 393px;
+  position: relative;
+
+  & > div {
+    position: absolute;
+  }
+
+  & > img {
+    width: 262px;
+    height: 393px;
+    border-radius: 8px;
   }
 `;

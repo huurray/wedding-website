@@ -55,7 +55,7 @@ export default function Slide4() {
   useEffect(() => {
     if (init) return;
     if (active) {
-      controls.start({ y: [70, 0], opacity: [0, 1] });
+      controls.start({ x: [70, 0], opacity: [0, 1] });
       setInit(true);
     }
   }, [active, init]);
@@ -70,12 +70,12 @@ export default function Slide4() {
               key={i}
               animate={controls}
               onClick={() => handleClick(i)}
-              transition={{ duration: 0.12 * (i + 1) }}
+              transition={{ duration: 0.1 * (i + 1) }}
             >
               <img
                 src={image}
                 alt={`image-${i + 1}`}
-                style={{ width: 92, height: isHorizontal ? 60 : 127 }}
+                style={{ width: 90, height: isHorizontal ? 58 : 125 }}
               />
             </motion.div>
           );

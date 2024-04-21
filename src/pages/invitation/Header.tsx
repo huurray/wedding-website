@@ -8,11 +8,11 @@ import toast from "react-hot-toast";
 import { SHARE_INFO } from "@/utils/constants";
 // assets
 import { TbMusic, TbMusicOff } from "react-icons/tb";
-import { LuShare } from "react-icons/lu";
+import { RiShare2Line } from "react-icons/ri";
 
 const sound = new Howl({
   src: ["/audio/back-sound.mp3"],
-  volume: 0.7,
+  volume: 0.9,
   html5: true,
 });
 
@@ -50,6 +50,7 @@ export default function Header() {
     document.addEventListener("visibilitychange", handleVisibilityChange);
     return () => {
       document.removeEventListener("visibilitychange", handleVisibilityChange);
+      sound?.stop();
     };
   }, [isPlaying]);
 
@@ -91,7 +92,7 @@ export default function Header() {
           </motion.div>
         </MusicButton>
         <ShareButton type="button" onClick={share}>
-          <LuShare size={16} color={theme.colors.gray400} />
+          <RiShare2Line size={16} color={theme.colors.gray400} />
         </ShareButton>
       </Content>
     </Container>
