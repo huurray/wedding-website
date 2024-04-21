@@ -47,7 +47,7 @@ export default function Slide2() {
         </h1>
       </motion.div>
       <motion.div animate={controls} transition={{ duration: 0.7 }}>
-        <h1 style={{ marginBottom: 32 }}>
+        <h1 style={{ marginBottom: 24 }}>
           자리하시어 축복해주시면
           <br />
           대단히 감사하겠습니다.
@@ -99,6 +99,7 @@ const Container = styled.div`
       font-size: 16px;
       line-height: 26px;
       text-align: center;
+      color: ${({ theme }) => theme.colors.gray700};
     }
   }
 `;
@@ -108,6 +109,7 @@ const Parents = styled.div`
   align-items: center;
 
   & > div {
+    font-size: 16px;
     &:nth-of-type(1) {
       width: 46px;
       text-align: center;

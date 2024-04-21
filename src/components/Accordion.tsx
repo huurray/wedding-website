@@ -47,7 +47,7 @@ const Container = styled.div`
   width: 300px;
 
   & > .header {
-    height: 40px;
+    height: 36px;
     padding: 0 12px;
     border: ${({ theme }) => `1px solid ${theme.colors.gray200}`};
     border-radius: 4px;

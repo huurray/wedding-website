@@ -11,11 +11,11 @@ export default function DetailWayModal() {
     <Modal isOpen={isOpen} close={() => setIsOpen(false)}>
       <Container>
         <h2>지하철</h2>
-        <p style={{ marginBottom: 12 }}>
-          2, 5호선 영등포구청역 하차 4번 출구 도보 3분
+        <p style={{ marginBottom: 16 }}>
+          2, 5호선 영등포구청역 하차 4번 출구 도보 5분
         </p>
         <h2>버스</h2>
-        <p style={{ marginBottom: 12 }}>
+        <p style={{ marginBottom: 16 }}>
           영등포경찰서, 영등포구청역 하차 후 도보 이용
           <br />
           일반 : 5, 70-3
@@ -25,7 +25,7 @@ export default function DetailWayModal() {
           마을 : 영등포02, 12
         </p>
         <h2>승용차</h2>
-        <p style={{ marginBottom: 4 }}>
+        <p style={{ marginBottom: 2 }}>
           네비게이션 [서울 영등포구 당산동 3가 93-2] 검색
         </p>
         <h3>주차 2시간 무료</h3>
@@ -35,7 +35,7 @@ export default function DetailWayModal() {
 }
 
 const Container = styled.div`
-  padding: 10px 0;
+  padding: 16px 0;
 
   & > h2 {
     font-size: 18px;

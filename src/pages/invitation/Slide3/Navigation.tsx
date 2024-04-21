@@ -69,7 +69,7 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-  width: 280px;
+  width: 300px;
   border: ${({ theme }) => `1px solid ${theme.colors.gray200}`};
   border-radius: 8px;
   display: flex;
@@ -78,7 +78,7 @@ const Content = styled.div`
 `;
 
 const Button = styled.button`
-  width: 139px;
+  width: 148px;
   height: 38px;
   display: flex;
   align-items: center;

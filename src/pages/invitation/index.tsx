@@ -71,7 +71,7 @@ const Container = styled.div`
   }
 
   .swiper-pagination-bullet {
-    width: 16px;
+    width: 14px;
     height: 2px;
     border-radius: 0;
     background-color: ${({ theme }) => theme.colors.gray700};
@@ -81,7 +81,7 @@ const Container = styled.div`
   }
 
   .swiper-pagination-bullet-active {
-    width: 32px;
+    width: 24px;
     opacity: 1;
   }
 `;

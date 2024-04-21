@@ -262,6 +262,7 @@ const Container = styled.div`
       font-size: 15px;
       line-height: 26px;
       text-align: center;
+      color: ${({ theme }) => theme.colors.gray700};
     }
   }
 `;
@@ -278,6 +279,7 @@ const AccordionContent = styled.div`
     & > p {
       font-size: 15px;
       line-height: 26px;
+      color: ${({ theme }) => theme.colors.gray700};
 
       strong {
         font-weight: 700;
@@ -334,6 +336,7 @@ const Copyright = styled.div`
   position: absolute;
   bottom: 12px;
   left: 20px;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 28px;
+  color: ${({ theme }) => theme.colors.gray500};
 `;
