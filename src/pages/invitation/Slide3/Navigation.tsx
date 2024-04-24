@@ -70,29 +70,22 @@ const Container = styled.div`
 
 const Content = styled.div`
   width: 300px;
-  border: ${({ theme }) => `1px solid ${theme.colors.gray200}`};
-  border-radius: 8px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 4px;
 `;
 
 const Button = styled.button`
-  width: 148px;
+  width: 142px;
   height: 38px;
   display: flex;
   align-items: center;
-  padding: 0 22px;
-
-  &:nth-of-type(1),
-  &:nth-of-type(2) {
-    border-bottom: ${({ theme }) => `1px solid ${theme.colors.gray200}`};
-  }
-
-  &:nth-of-type(1),
-  &:nth-of-type(3) {
-    border-right: ${({ theme }) => `1px solid ${theme.colors.gray200}`};
-  }
+  padding: 0 20px;
+  border: ${({ theme }) => `1px solid ${theme.colors.gray100}`};
+  border-radius: 8px;
+  background-color: ${({ theme }) => theme.colors.white};
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.01), 0 1px 1px rgba(0, 0, 0, 0.01);
 
   & > img {
     width: 20px;

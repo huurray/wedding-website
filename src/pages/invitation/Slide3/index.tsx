@@ -23,14 +23,14 @@ export default function Slide3() {
   useEffect(() => {
     if (init) return;
     if (active) {
-      controls.start({ y: [70, 0], opacity: [0, 1] });
+      controls.start({ y: [100, 0], opacity: [0, 1] });
       setInit(true);
     }
   }, [active, init]);
 
   return (
     <Container>
-      <motion.div animate={controls} transition={{ duration: 0.6 }}>
+      <motion.div animate={controls} transition={{ duration: 0.8 }}>
         <h2>
           {WEDDING.fullDate}, <strong>{WEDDING.time}</strong>
         </h2>
@@ -41,12 +41,12 @@ export default function Slide3() {
       </motion.div>
       <motion.div
         animate={controls}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1 }}
         style={{ width: "100%" }}
       >
         <Calendar date={WEDDING.date} />
       </motion.div>
-      <motion.div animate={controls} transition={{ duration: 1 }}>
+      <motion.div animate={controls} transition={{ duration: 1.1 }}>
         <Navigation />
       </motion.div>
     </Container>
@@ -63,7 +63,7 @@ const Container = styled.div`
 
   & > div {
     & > h1 {
-      font-size: 16px;
+      font-size: 18px;
       line-height: 32px;
       text-align: center;
       font-weight: 700;

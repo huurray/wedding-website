@@ -11,11 +11,10 @@ export default function DetailWayModal() {
     <Modal isOpen={isOpen} close={() => setIsOpen(false)}>
       <Container>
         <h2>지하철</h2>
-        <p style={{ marginBottom: 16 }}>
-          2, 5호선 영등포구청역 하차 4번 출구 도보 5분
-        </p>
+        <p>2, 5호선 영등포구청역 하차 4번 출구 도보 5분</p>
+        <div className="divider-line" />
         <h2>버스</h2>
-        <p style={{ marginBottom: 16 }}>
+        <p>
           영등포경찰서, 영등포구청역 하차 후 도보 이용
           <br />
           일반 : 5, 70-3
@@ -24,8 +23,9 @@ export default function DetailWayModal() {
           <br />
           마을 : 영등포02, 12
         </p>
+        <div className="divider-line" />
         <h2>승용차</h2>
-        <p style={{ marginBottom: 2 }}>
+        <p style={{ marginBottom: 6 }}>
           네비게이션 [서울 영등포구 당산동 3가 93-2] 검색
         </p>
         <h3>주차 2시간 무료</h3>
@@ -38,9 +38,10 @@ const Container = styled.div`
   padding: 16px 0;
 
   & > h2 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     margin-bottom: 6px;
+    color: ${({ theme }) => theme.colors.beige};
   }
 
   & > h3 {
@@ -52,6 +53,12 @@ const Container = styled.div`
   & > p {
     color: ${({ theme }) => theme.colors.gray500};
     font-size: 14px;
-    line-height: 24px;
+    line-height: 22px;
+  }
+
+  & > .divider-line {
+    height: 1px;
+    background-color: ${({ theme }) => theme.colors.gray50};
+    margin: 14px 8px 14px 0;
   }
 `;

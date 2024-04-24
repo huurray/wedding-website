@@ -55,7 +55,7 @@ export default function Slide4() {
   useEffect(() => {
     if (init) return;
     if (active) {
-      controls.start({ x: [70, 0], opacity: [0, 1] });
+      controls.start({ x: [50, 0], opacity: [0, 1] });
       setInit(true);
     }
   }, [active, init]);

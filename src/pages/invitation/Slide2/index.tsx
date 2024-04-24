@@ -23,7 +23,7 @@ export default function Slide2() {
   useEffect(() => {
     if (init) return;
     if (active) {
-      controls.start({ y: [70, 0], opacity: [0, 1] });
+      controls.start({ y: [100, 0], opacity: [0, 1] });
       setInit(true);
     }
   }, [active, init]);
@@ -74,7 +74,16 @@ export default function Slide2() {
       <motion.div animate={controls} transition={{ duration: 1.1 }}>
         <Picture>
           <img src={ImageJH} alt="image" />
-          <IoMdHeart size={13} />
+          <motion.div
+            animate={{ y: [0, 7, 0] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              repeatType: "loop",
+            }}
+          >
+            <IoMdHeart size={13} />
+          </motion.div>
           <img src={ImageSA} alt="image" />
         </Picture>
       </motion.div>
@@ -99,7 +108,7 @@ const Container = styled.div`
       font-size: 16px;
       line-height: 26px;
       text-align: center;
-      color: ${({ theme }) => theme.colors.gray700};
+      color: ${({ theme }) => theme.colors.gray600};
     }
   }
 `;
@@ -107,18 +116,22 @@ const Container = styled.div`
 const Parents = styled.div`
   display: flex;
   align-items: center;
+  margin-left: -4px;
 
   & > div {
     font-size: 16px;
+    color: ${({ theme }) => theme.colors.gray600};
     &:nth-of-type(1) {
       width: 46px;
       text-align: center;
       font-weight: 700;
+      color: ${({ theme }) => theme.colors.gray900};
     }
     &:nth-of-type(3) {
       width: 46px;
       text-align: center;
       font-weight: 700;
+      color: ${({ theme }) => theme.colors.gray900};
     }
     &:nth-of-type(5) {
       width: 46px;
@@ -126,6 +139,7 @@ const Parents = styled.div`
     }
     &:nth-of-type(6) {
       font-weight: 700;
+      color: ${({ theme }) => theme.colors.gray900};
     }
   }
 `;

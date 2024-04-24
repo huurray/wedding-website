@@ -2,7 +2,7 @@ export const WEDDING = {
   date: "2024-08-25",
   fullDate: "2024년 8월 25일 일요일",
   time: "오전 11시",
-  address: "더컨벤션 영등포 웨딩홀 2층, 다이너스티홀",
+  address: "더컨벤션 영등포 2층, 다이너스티홀",
   fullAddress: "서울 영등포구 국회대로38길 2, 더컨벤션 영등포 2층 다이너스티홀",
 };
 

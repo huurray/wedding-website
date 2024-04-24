@@ -1,8 +1,9 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "@emotion/styled";
 import dayjs from "dayjs";
 import { useCountUp } from "react-countup";
 import { useTheme } from "@emotion/react";
+import { motion, useAnimationControls } from "framer-motion";
 // store
 import { useAtomValue } from "jotai";
 import { mainIndexAtom } from "../index";
@@ -16,11 +17,14 @@ interface Props {
 export default function Calendar({ date, style }: Props) {
   const theme = useTheme();
   const mainIndex = useAtomValue(mainIndexAtom);
+  const controls = useAnimationControls();
 
   const countUpRef = useRef(null);
 
   const dDay = dayjs().diff(dayjs(date), "days");
   const active = mainIndex === 2;
+
+  const [init, setInit] = useState(false);
 
   const { start } = useCountUp({
     ref: countUpRef,
@@ -39,13 +43,22 @@ export default function Calendar({ date, style }: Props) {
 
   useEffect(() => {
     start();
+    if (init) return;
+    if (active) {
+      controls.start({ y: [50, 0], opacity: [0, 1] });
+      setInit(true);
+    }
   }, [active]);
 
   return (
     <Container style={style}>
       <DayOfWeek>
         {dayOfWeek.map((day, i) => (
-          <div key={i}>
+          <motion.div
+            key={i}
+            animate={controls}
+            transition={{ duration: 0.1 * (i + 1) }}
+          >
             <div
               style={{
                 color:
@@ -58,7 +71,7 @@ export default function Calendar({ date, style }: Props) {
             >
               {day}
             </div>
-          </div>
+          </motion.div>
         ))}
       </DayOfWeek>
       {weeks.map((week, weekIndex) => (
@@ -66,7 +79,11 @@ export default function Calendar({ date, style }: Props) {
           {week.map(({ date, type }, dayIndex) => {
             const isWeddingDay = type === "wedding";
             return (
-              <Day key={`${date}${dayIndex}`}>
+              <Day
+                key={`${date}${dayIndex}`}
+                animate={controls}
+                transition={{ duration: 0.1 * (dayIndex + 1) }}
+              >
                 <span style={{ color: dateColor[type] }}>
                   {date ? dayjs(date).date() : ""}
                 </span>
@@ -88,13 +105,13 @@ export default function Calendar({ date, style }: Props) {
 
 const Container = styled.div`
   width: 100%;
-  padding: 24px 32px;
+  padding: 28px 40px;
 `;
 
 const DayOfWeek = styled.div`
   display: flex;
   align-items: flex-start;
-  height: 32px;
+  height: 26px;
 
   & > div {
     flex: 1;
@@ -109,9 +126,9 @@ const Week = styled.div`
   align-items: center;
 `;
 
-const Day = styled.div`
+const Day = styled(motion.div)`
   flex: 1;
-  height: 32px;
+  height: 26px;
   margin-bottom: 16px;
   display: flex;
   flex-direction: column;

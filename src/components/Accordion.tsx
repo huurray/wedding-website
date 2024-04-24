@@ -51,6 +51,7 @@ const Container = styled.div`
     padding: 0 12px;
     border: ${({ theme }) => `1px solid ${theme.colors.gray200}`};
     border-radius: 4px;
+    background-color: ${({ theme }) => theme.colors.white};
     display: flex;
     align-items: center;
     margin-bottom: 4px;

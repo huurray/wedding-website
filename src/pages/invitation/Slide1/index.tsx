@@ -1,9 +1,11 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 import queryString from "query-string";
+import Snowfall from "react-snowfall";
 // utils
 import { BRIDE, GROOM } from "@/utils/constants";
 // components
+import { TypeAnimation } from "react-type-animation";
 import Skeleton from "react-loading-skeleton";
 import { motion } from "framer-motion";
 // assets
@@ -31,22 +33,37 @@ export default function Slide1() {
         <img src={Image2} alt="hero" onLoad={() => setIsLoading(false)} />
       </ImageContainer>
       {name ? (
-        <h1>
-          {GROOM.name}과 {BRIDE.name}의
-          <br />
-          결혼식에 {name}님을
-          <br />
-          초대합니다.
-          <br />
-        </h1>
+        <TypeAnimation
+          cursor
+          sequence={[
+            500,
+            `${GROOM.name}과`,
+            500,
+            `${GROOM.name}과 ${BRIDE.name}의`,
+            500,
+            `${GROOM.name}과 ${BRIDE.name}의\n결혼식에 당신을`,
+            500,
+            `${GROOM.name}과 ${BRIDE.name}의\n결혼식에 ${name}님을\n초대합니다.`,
+          ]}
+          wrapper="h1"
+          style={{ whiteSpace: "pre-wrap", minHeight: 108 }}
+        />
       ) : (
-        <h1>
-          {GROOM.name}과 {BRIDE.name}의
-          <br />
-          결혼식에 초대합니다.
-          <br />
-        </h1>
+        <TypeAnimation
+          cursor
+          sequence={[
+            500,
+            `${GROOM.name}과`,
+            500,
+            `${GROOM.name}과 ${BRIDE.name}의`,
+            500,
+            `${GROOM.name}과 ${BRIDE.name}의\n결혼식에 초대합니다.`,
+          ]}
+          wrapper="h1"
+          style={{ whiteSpace: "pre-wrap", minHeight: 80 }}
+        />
       )}
+      <Snowfall color="#ffcad4a9" snowflakeCount={30} speed={[0.7, 1.5]} />
     </Container>
   );
 }
@@ -61,6 +78,7 @@ const Container = styled(motion.div)`
 
   & > h1 {
     font-size: 16px;
+    font-weight: 500;
     line-height: 28px;
     padding: 24px 24px 0;
     text-align: center;

@@ -33,7 +33,7 @@ export default function Slide5() {
   useEffect(() => {
     if (init) return;
     if (active) {
-      controls.start({ y: [70, 0], opacity: [0, 1] });
+      controls.start({ y: [100, 0], opacity: [0, 1] });
       setInit(true);
     }
   }, [active, init]);
@@ -262,7 +262,7 @@ const Container = styled.div`
       font-size: 15px;
       line-height: 26px;
       text-align: center;
-      color: ${({ theme }) => theme.colors.gray700};
+      color: ${({ theme }) => theme.colors.gray600};
     }
   }
 `;

@@ -12,7 +12,7 @@ import { RiShare2Line } from "react-icons/ri";
 
 const sound = new Howl({
   src: ["/audio/back-sound.mp3"],
-  volume: 0.9,
+  volume: 0.7,
   html5: true,
 });
 
