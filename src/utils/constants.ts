@@ -12,7 +12,7 @@ export const GROOM = {
   account: "국민 123-456-789",
   kakaoAccountLink: "https://qr.kakaopay.com/Ej8pGgC5h",
   father: {
-    fullName: "허환",
+    fullName: "허 환",
     account: "국민 123-456-789",
     kakaoAccountLink: "https://qr.kakaopay.com/Ej8pGgC5h",
   },
