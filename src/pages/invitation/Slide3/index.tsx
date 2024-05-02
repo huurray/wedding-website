@@ -36,7 +36,7 @@ export default function Slide3() {
         </h2>
         <h1 onClick={() => copyToClipboard(WEDDING.fullAddress)}>
           {WEDDING.address}
-          <LuCopy size={14} style={{ marginLeft: 4, marginTop: 1 }} />
+          <LuCopy size={14} />
         </h1>
       </motion.div>
       <motion.div
@@ -70,6 +70,15 @@ const Container = styled.div`
       display: flex;
       align-items: center;
       cursor: pointer;
+
+      svg {
+        margin-left: 5px;
+
+        path,
+        rect {
+          color: ${({ theme }) => theme.colors.gray500};
+        }
+      }
     }
 
     & > h2 {

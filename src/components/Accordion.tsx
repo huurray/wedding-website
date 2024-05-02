@@ -44,7 +44,7 @@ export default function Accordion({
 }
 
 const Container = styled.div`
-  width: 300px;
+  width: 316px;
 
   & > .header {
     height: 36px;

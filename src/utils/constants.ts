@@ -9,7 +9,7 @@ export const WEDDING = {
 export const GROOM = {
   fullName: "허준혁",
   name: "준혁",
-  account: "국민 123-456-789",
+  account: "카카오뱅크 3333-18-0458924",
   kakaoAccountLink: "https://qr.kakaopay.com/Ej8pGgC5h",
   father: {
     fullName: "허 환",

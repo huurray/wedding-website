@@ -9,8 +9,8 @@ import { BRIDE, GROOM } from "@/utils/constants";
 import { motion, useAnimationControls } from "framer-motion";
 import { IoMdHeart } from "react-icons/io";
 // assets
-import ImageJH from "@/assets/jh.jpg";
-import ImageSA from "@/assets/sa.jpg";
+import ImageGroom from "@/assets/groom.jpg";
+import ImageBride from "@/assets/bride.jpg";
 
 export default function Slide2() {
   const controls = useAnimationControls();
@@ -73,7 +73,7 @@ export default function Slide2() {
       </motion.div>
       <motion.div animate={controls} transition={{ duration: 1.1 }}>
         <Picture>
-          <img src={ImageJH} alt="image" />
+          <img src={ImageGroom} alt="image" />
           <motion.div
             animate={{ y: [0, 7, 0] }}
             transition={{
@@ -84,7 +84,7 @@ export default function Slide2() {
           >
             <IoMdHeart size={13} />
           </motion.div>
-          <img src={ImageSA} alt="image" />
+          <img src={ImageBride} alt="image" />
         </Picture>
       </motion.div>
     </Container>

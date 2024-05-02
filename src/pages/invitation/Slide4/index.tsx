@@ -22,7 +22,7 @@ import Image13 from "@/assets/gallery/13.jpg";
 import Image14 from "@/assets/gallery/14.jpg";
 import Image15 from "@/assets/gallery/15.jpg";
 
-const images = [
+const imageFiles = [
   Image1,
   Image3,
   Image4,
@@ -45,6 +45,7 @@ export default function Slide4() {
   const [imageViewer, setImageViewer] = useAtom(ImageViewerAtom);
 
   const [init, setInit] = useState(false);
+  const [loadedImages, setLoadedImages] = useState<HTMLImageElement[]>([]);
 
   const active = mainIndex === 3;
 
@@ -60,10 +61,21 @@ export default function Slide4() {
     }
   }, [active, init]);
 
+  // 이미지 프리패칭
+  useEffect(() => {
+    const images: HTMLImageElement[] = [];
+    imageFiles.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+      images.push(img);
+    });
+    setLoadedImages(images);
+  }, []);
+
   return (
     <Container>
       <Grid>
-        {images.map((image, i) => {
+        {loadedImages.map((image, i) => {
           const isHorizontal = horizontalIndexes.includes(i);
           return (
             <motion.div
@@ -73,7 +85,7 @@ export default function Slide4() {
               transition={{ duration: 0.1 * (i + 1) }}
             >
               <img
-                src={image}
+                src={image.src}
                 alt={`image-${i + 1}`}
                 style={{ width: 90, height: isHorizontal ? 58 : 125 }}
               />

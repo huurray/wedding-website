@@ -54,7 +54,7 @@ export default function Navigation({ style }: Props) {
           <span>티맵</span>
         </Button>
         <Button type="button" onClick={showDetail}>
-          <span>자세한 오시는 길</span>
+          <span>자세한 설명 및 주차</span>
         </Button>
       </Content>
     </Container>
