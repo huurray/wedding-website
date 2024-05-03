@@ -1,4 +1,5 @@
 import toast from "react-hot-toast";
+import { copyToClipboard } from "@/utils/tools";
 
 interface Props {
   title: string;
@@ -10,7 +11,7 @@ export function useShare(shareInfo: Props) {
     if (navigator?.share) {
       await navigator.share(shareInfo);
     } else {
-      toast("공유 링크가 복사되었습니다.");
+      copyToClipboard(shareInfo.url);
     }
   }
 

@@ -10,9 +10,6 @@ export function useKakaoExternal() {
       //카카오톡 외부브라우저로 호출
       location.href =
         "kakaotalk://web/openExternal?url=" + encodeURIComponent(target_url);
-      setTimeout(() => {
-        location.href = "kakaotalk://web/close";
-      }, 0);
     } else if (navigator.userAgent.match(/line/i)) {
       //라인 외부브라우저로 호출
       if (target_url.indexOf("?") !== -1) {
