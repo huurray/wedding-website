@@ -48,6 +48,7 @@ const Content = styled.div`
   border-radius: 6px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: calc(100vw - 48px);
+  max-width: ${({ theme }) => `calc(${theme.sizes.maxWidth} - 48px)`};
   display: flex;
   flex-direction: column;
 `;

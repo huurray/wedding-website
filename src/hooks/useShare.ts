@@ -1,4 +1,3 @@
-import toast from "react-hot-toast";
 import { copyToClipboard } from "@/utils/tools";
 
 interface Props {

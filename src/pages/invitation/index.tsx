@@ -33,6 +33,7 @@ export default function InvitationPage() {
         pagination={{ clickable: true }}
         style={{ width: "100%", height: "100%" }}
         onSlideChange={(data) => setMainIndex(data.activeIndex)}
+        speed={350}
       >
         <SwiperSlide>
           <Slide1 />

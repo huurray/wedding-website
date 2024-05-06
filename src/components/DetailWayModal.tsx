@@ -53,8 +53,8 @@ export default function DetailWayModal() {
           <br />
           <span className="highlight">웨딩홀 맞은편 공영주차장</span> 이용가능
           <div className="park-ticket">
-            <img src={ImagePoint} alt="point" />
             <p>
+              <img src={ImagePoint} alt="point" />
               주차권 수령: 3층 연회장 입구<span>(2시간 무료)</span>
             </p>
           </div>
@@ -104,21 +104,21 @@ const Container = styled.div`
     & > .park-ticket {
       display: flex;
       align-items: center;
-      margin-top: 12px;
-      position: relative;
-
-      & > img {
-        position: absolute;
-        top: -10px;
-        left: -8px;
-        width: 28px;
-        margin-right: 4px;
-      }
+      margin-top: 4px;
 
       & > p {
         font-size: 17px;
         font-weight: 600;
         line-height: 24px;
+        position: relative;
+
+        & > img {
+          position: absolute;
+          top: -8px;
+          right: -32px;
+          width: 32px;
+          margin-right: 4px;
+        }
 
         & > span {
           font-size: 14px;

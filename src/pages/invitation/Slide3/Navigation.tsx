@@ -54,7 +54,7 @@ export default function Navigation({ style }: Props) {
           <span>티맵</span>
         </Button>
         <Button type="button" onClick={showDetail}>
-          <span>자세한 설명 및 주차</span>
+          <p>자세한 설명 및 주차</p>
         </Button>
       </Content>
     </Container>
@@ -81,7 +81,6 @@ const Button = styled.button`
   height: 38px;
   display: flex;
   align-items: center;
-  padding: 0 20px;
   border: ${({ theme }) => `1px solid ${theme.colors.gray100}`};
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.white};
@@ -91,12 +90,21 @@ const Button = styled.button`
     width: 20px;
     height: 20px;
     border-radius: 6px;
-    margin-right: 8px;
+    margin-left: 20px;
+    margin-right: 10px;
   }
 
   & > span {
     width: 100%;
     font-size: 12px;
     font-weight: 500;
+    margin-right: 20px;
+  }
+
+  & > p {
+    width: 100%;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0 4px;
   }
 `;
