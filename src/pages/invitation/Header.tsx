@@ -65,22 +65,22 @@ export default function Header() {
       <Content>
         <MusicButton type="button" onClick={toggleMusic}>
           <AbsoluteDiv
-            animate={{ y: isPlaying ? 0 : 24, opacity: isPlaying ? 1 : 0 }}
+            animate={{ y: isPlaying ? -24 : 0, opacity: isPlaying ? 0 : 1 }}
             transition={animationOptions}
             style={{ left: 36 }}
           >
-            <span>음악 끄기</span>
+            <span>음악 켜기</span>
           </AbsoluteDiv>
           <AbsoluteDiv
-            animate={{ y: isPlaying ? -24 : 0, opacity: isPlaying ? 0 : 1 }}
+            animate={{ y: isPlaying ? 0 : 24, opacity: isPlaying ? 1 : 0 }}
             transition={animationOptions}
             style={{ left: 14 }}
           >
-            <span>음악 켜기</span>
+            <span>음악 끄기</span>
           </AbsoluteDiv>
           <motion.div
             style={{ left: 0 }}
-            animate={{ x: isPlaying ? 4 : 66 }}
+            animate={{ x: isPlaying ? 66 : 4 }}
             transition={animationOptions}
             className="circle"
           >

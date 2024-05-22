@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import toast from "react-hot-toast";
 // utils
 import { NAVIGATION } from "@/utils/constants";
+import { navigateExternal } from "@/utils/tools";
 // store
 import { useSetAtom } from "jotai";
 import { isDetailWayModalOpenAtom } from "@/components/DetailWayModal";
@@ -24,10 +25,10 @@ export default function Navigation({ style }: Props) {
       );
 
     if (isMobile) {
-      window.location.href = NAVIGATION[type].app;
+      navigateExternal(NAVIGATION[type].app);
     } else {
       if (NAVIGATION[type].web) {
-        window.open(NAVIGATION[type].web, undefined, "noopener, noreferrer");
+        navigateExternal(NAVIGATION[type].web);
       } else {
         toast("모바일 환경에서 이용가능합니다.");
       }
@@ -38,23 +39,40 @@ export default function Navigation({ style }: Props) {
     setIsOpen(true);
   }
 
+  const BUTTON_WIDTH = (window.screen.width - 68) / 2;
   return (
     <Container style={style}>
       <Content>
-        <Button type="button" onClick={() => navigateMap("naverMap")}>
+        <Button
+          type="button"
+          onClick={showDetail}
+          style={{ width: BUTTON_WIDTH }}
+        >
+          <p>자세한 설명 및 주차</p>
+        </Button>
+        <Button
+          type="button"
+          onClick={() => navigateMap("naverMap")}
+          style={{ width: BUTTON_WIDTH }}
+        >
           <img src={NaverMapIcon} alt="naver-map" />
           <span>네이버 지도</span>
         </Button>
-        <Button type="button" onClick={() => navigateMap("kakaoMap")}>
+        <Button
+          type="button"
+          onClick={() => navigateMap("kakaoMap")}
+          style={{ width: BUTTON_WIDTH }}
+        >
           <img src={KakaoMapIcon} alt="kakao-map" />
           <span>카카오 지도</span>
         </Button>
-        <Button type="button" onClick={() => navigateMap("tmap")}>
+        <Button
+          type="button"
+          onClick={() => navigateMap("tmap")}
+          style={{ width: BUTTON_WIDTH }}
+        >
           <img src={TMapIcon} alt="t-map" />
           <span>티맵</span>
-        </Button>
-        <Button type="button" onClick={showDetail}>
-          <p>자세한 설명 및 주차</p>
         </Button>
       </Content>
     </Container>
@@ -69,7 +87,6 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-  width: 300px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -77,7 +94,6 @@ const Content = styled.div`
 `;
 
 const Button = styled.button`
-  width: 142px;
   height: 38px;
   display: flex;
   align-items: center;
@@ -91,20 +107,21 @@ const Button = styled.button`
     height: 20px;
     border-radius: 6px;
     margin-left: 20px;
-    margin-right: 10px;
+    margin-right: 8px;
   }
 
   & > span {
     width: 100%;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 500;
     margin-right: 20px;
   }
 
   & > p {
     width: 100%;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 500;
     margin: 0 4px;
+    font-weight: 600;
   }
 `;

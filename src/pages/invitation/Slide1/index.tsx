@@ -63,7 +63,7 @@ export default function Slide1() {
           style={{ whiteSpace: "pre-wrap", minHeight: 80 }}
         />
       )}
-      <Snowfall color="#ffcad4a9" snowflakeCount={30} speed={[0.7, 1.5]} />
+      <Snowfall color="#ffd0d0db" snowflakeCount={30} speed={[0.7, 1.5]} />
     </Container>
   );
 }

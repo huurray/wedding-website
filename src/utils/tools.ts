@@ -9,3 +9,20 @@ export async function copyToClipboard(text: string) {
     throw error;
   }
 }
+
+export function navigateExternal(url: string) {
+  if (navigator.userAgent.match(/kakaotalk/i)) {
+    //카카오톡 외부브라우저로 호출
+    window.location.href =
+      "kakaotalk://web/openExternal?url=" + encodeURIComponent(url);
+  } else if (navigator.userAgent.match(/line/i)) {
+    //라인 외부브라우저로 호출
+    if (url.indexOf("?") !== -1) {
+      window.location.href = url + "&openExternalBrowser=1";
+    } else {
+      window.location.href = url + "?openExternalBrowser=1";
+    }
+  } else {
+    window.open(url, undefined, "noopener, noreferrer");
+  }
+}

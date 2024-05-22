@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import { useAtomValue } from "jotai";
 import { mainIndexAtom } from "../index";
 // utils
-import { copyToClipboard } from "@/utils/tools";
+import { copyToClipboard, navigateExternal } from "@/utils/tools";
 import { GROOM, BRIDE } from "@/utils/constants";
 // components
 import { LuCopy } from "react-icons/lu";
@@ -41,7 +41,7 @@ export default function Slide5() {
   return (
     <Container>
       <motion.div animate={controls} transition={{ duration: 0.3 }}>
-        <h1 style={{ marginBottom: 16 }}>마음 전하실 곳</h1>
+        <h1 style={{ marginBottom: 12 }}>마음 전하실 곳</h1>
       </motion.div>
       <motion.div animate={controls} transition={{ duration: 0.5 }}>
         <p style={{ marginBottom: 12 }}>
@@ -64,6 +64,7 @@ export default function Slide5() {
           title="신랑측"
           isOpen={accordionIndex === 0}
           onClick={() => toggleAccordion(0)}
+          headerStyle={{ backgroundColor: "#eef5ffc5" }}
         >
           <AccordionContent>
             <div className="left">
@@ -73,14 +74,12 @@ export default function Slide5() {
               <p>{GROOM.account}</p>
             </div>
             <div className="right">
-              <a
-                href={GROOM.kakaoAccountLink}
+              <button
+                onClick={() => navigateExternal(GROOM.kakaoAccountLink)}
                 className="kakao-pay"
-                target="_blank"
-                rel="noreferrer noopener"
               >
                 <img src={kakaoPayLogo} alt="kakao-pay-logo" />
-              </a>
+              </button>
               <button
                 type="button"
                 className="copy"
@@ -100,14 +99,14 @@ export default function Slide5() {
             </div>
             <div className="right">
               {GROOM.father.kakaoAccountLink && (
-                <a
-                  href={GROOM.father.kakaoAccountLink}
+                <button
+                  onClick={() =>
+                    navigateExternal(GROOM.father.kakaoAccountLink)
+                  }
                   className="kakao-pay"
-                  target="_blank"
-                  rel="noreferrer noopener"
                 >
                   <img src={kakaoPayLogo} alt="kakao-pay-logo" />
-                </a>
+                </button>
               )}
               <button
                 type="button"
@@ -128,14 +127,14 @@ export default function Slide5() {
             </div>
             <div className="right">
               {GROOM.mother.kakaoAccountLink && (
-                <a
-                  href={GROOM.mother.kakaoAccountLink}
+                <button
+                  onClick={() =>
+                    navigateExternal(GROOM.mother.kakaoAccountLink)
+                  }
                   className="kakao-pay"
-                  target="_blank"
-                  rel="noreferrer noopener"
                 >
                   <img src={kakaoPayLogo} alt="kakao-pay-logo" />
-                </a>
+                </button>
               )}
               <button
                 type="button"
@@ -152,6 +151,7 @@ export default function Slide5() {
           title="신부측"
           isOpen={accordionIndex === 1}
           onClick={() => toggleAccordion(1)}
+          headerStyle={{ backgroundColor: "#ffefefb9" }}
         >
           <AccordionContent>
             <div className="left">
@@ -161,14 +161,12 @@ export default function Slide5() {
               <p>{BRIDE.account}</p>
             </div>
             <div className="right">
-              <a
-                href={BRIDE.kakaoAccountLink}
+              <button
+                onClick={() => navigateExternal(BRIDE.kakaoAccountLink)}
                 className="kakao-pay"
-                target="_blank"
-                rel="noreferrer noopener"
               >
                 <img src={kakaoPayLogo} alt="kakao-pay-logo" />
-              </a>
+              </button>
               <button
                 type="button"
                 className="copy"
@@ -188,14 +186,14 @@ export default function Slide5() {
             </div>
             <div className="right">
               {BRIDE.father.kakaoAccountLink && (
-                <a
-                  href={BRIDE.father.kakaoAccountLink}
+                <button
+                  onClick={() =>
+                    navigateExternal(BRIDE.father.kakaoAccountLink)
+                  }
                   className="kakao-pay"
-                  target="_blank"
-                  rel="noreferrer noopener"
                 >
                   <img src={kakaoPayLogo} alt="kakao-pay-logo" />
-                </a>
+                </button>
               )}
               <button
                 type="button"
@@ -216,14 +214,14 @@ export default function Slide5() {
             </div>
             <div className="right">
               {BRIDE.mother.kakaoAccountLink && (
-                <a
-                  href={BRIDE.mother.kakaoAccountLink}
+                <button
+                  onClick={() =>
+                    navigateExternal(BRIDE.mother.kakaoAccountLink)
+                  }
                   className="kakao-pay"
-                  target="_blank"
-                  rel="noreferrer noopener"
                 >
                   <img src={kakaoPayLogo} alt="kakao-pay-logo" />
-                </a>
+                </button>
               )}
               <button
                 type="button"
@@ -270,7 +268,7 @@ const Container = styled.div`
 const AccordionContent = styled.div`
   display: flex;
   align-items: center;
-  padding: 8px;
+  padding: 6px 8px;
 
   & > .left {
     width: 100%;
@@ -297,6 +295,7 @@ const AccordionContent = styled.div`
       background-color: ${({ theme }) => theme.colors.yellow};
       border-radius: 4px;
       margin-bottom: 4px;
+      cursor: pointer;
 
       & > img {
         width: 32px;

@@ -55,7 +55,16 @@ export default function Slide2() {
       </motion.div>
       <motion.div animate={controls} transition={{ duration: 0.9 }}>
         <Parents style={{ marginBottom: 12 }}>
-          <div>{GROOM.father.fullName}</div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              padding: "0 2.5px",
+            }}
+          >
+            <span>{GROOM.father.fullName[0]}</span>
+            <span>{GROOM.father.fullName[1]}</span>
+          </div>
           <div>·</div>
           <div>{GROOM.mother.fullName}</div>
           <div>의</div>

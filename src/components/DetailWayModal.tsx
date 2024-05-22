@@ -98,7 +98,7 @@ const Container = styled.div`
 
     & > .highlight {
       display: inline;
-      box-shadow: inset 0 -10px 0 #fff8b2;
+      box-shadow: inset 0 -12px 0 #fff9b2d5;
     }
 
     & > .park-ticket {
@@ -114,9 +114,9 @@ const Container = styled.div`
 
         & > img {
           position: absolute;
-          top: -8px;
-          right: -32px;
-          width: 32px;
+          top: -12px;
+          right: -30px;
+          width: 34px;
           margin-right: 4px;
         }
 

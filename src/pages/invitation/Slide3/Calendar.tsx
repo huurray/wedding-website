@@ -105,13 +105,13 @@ export default function Calendar({ date, style }: Props) {
 
 const Container = styled.div`
   width: 100%;
-  padding: 28px 40px;
+  padding: 28px 0;
 `;
 
 const DayOfWeek = styled.div`
   display: flex;
   align-items: flex-start;
-  height: 26px;
+  height: 32px;
 
   & > div {
     flex: 1;

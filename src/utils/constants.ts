@@ -1,6 +1,6 @@
 export const WEDDING = {
   date: "2024-08-25",
-  fullDate: "2024년 8월 25일 일요일",
+  fullDate: "2024. 8. 25 일요일",
   time: "오전 11시",
   address: "더컨벤션 영등포 2층, 다이너스티홀",
   fullAddress: "서울 영등포구 국회대로38길 2, 더컨벤션 영등포 2층 다이너스티홀",
@@ -12,31 +12,31 @@ export const GROOM = {
   account: "카카오뱅크 3333-18-0458924",
   kakaoAccountLink: "https://qr.kakaopay.com/Ej8pGgC5h",
   father: {
-    fullName: "허 환",
-    account: "국민 123-456-789",
-    kakaoAccountLink: "https://qr.kakaopay.com/Ej8pGgC5h",
+    fullName: "허환",
+    account: "하나 033-18-72990-4",
+    kakaoAccountLink: "",
   },
   mother: {
     fullName: "김인숙",
-    account: "국민 123-456-789",
-    kakaoAccountLink: "https://qr.kakaopay.com/Ej8pGgC5h",
+    account: "농협 130047-56-012472",
+    kakaoAccountLink: "",
   },
 };
 
 export const BRIDE = {
   fullName: "신승아",
   name: "승아",
-  account: "국민 123-456-789",
-  kakaoAccountLink: "https://qr.kakaopay.com/Ej8pGgC5h",
+  account: "카카오뱅크 3333-26-0590620",
+  kakaoAccountLink: "https://qr.kakaopay.com/FWVNlrabP",
   father: {
     fullName: "신우균",
-    account: "국민 123-456-789",
-    kakaoAccountLink: "https://qr.kakaopay.com/Ej8pGgC5h",
+    account: "신한 658-11-009151",
+    kakaoAccountLink: "https://qr.kakaopay.com/FDr6G97Y6",
   },
   mother: {
     fullName: "양명은",
-    account: "국민 123-456-789",
-    kakaoAccountLink: "https://qr.kakaopay.com/Ej8pGgC5h",
+    account: "우리 1002-662-941315",
+    kakaoAccountLink: "https://qr.kakaopay.com/FMZA0KrEW",
   },
 };
 

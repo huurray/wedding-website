@@ -49,7 +49,7 @@ const Container = styled.div`
   & > .header {
     height: 36px;
     padding: 0 12px;
-    border: ${({ theme }) => `1px solid ${theme.colors.gray200}`};
+    border: ${({ theme }) => `1px solid ${theme.colors.gray100}`};
     border-radius: 4px;
     background-color: ${({ theme }) => theme.colors.white};
     display: flex;
