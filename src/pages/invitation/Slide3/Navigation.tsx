@@ -10,19 +10,27 @@ import { isDetailWayModalOpenAtom } from "@/components/DetailWayModal";
 import NaverMapIcon from "@/assets/navigation/naver-map.png";
 import KakaoMapIcon from "@/assets/navigation/kakao-map.png";
 import TMapIcon from "@/assets/navigation/t-map.png";
+import { useTheme } from "@emotion/react";
 
 type NavigationType = "naverMap" | "kakaoMap" | "tmap";
 interface Props {
   style?: React.CSSProperties;
 }
 export default function Navigation({ style }: Props) {
+  const theme = useTheme();
+
   const setIsOpen = useSetAtom(isDetailWayModalOpenAtom);
+
+  const MAX_WIDTH = Number(theme.sizes.maxWidth.split("px")[0]);
+  const SCREEN_WIDTH =
+    window.screen.width > MAX_WIDTH ? MAX_WIDTH : window.screen.width;
+  const BUTTON_WIDTH = (SCREEN_WIDTH - 68) / 2;
 
   function navigateMap(type: NavigationType) {
     const isMobile =
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent
-      );
+      ) || window.screen.width <= MAX_WIDTH;
 
     if (isMobile) {
       navigateExternal(NAVIGATION[type].app);
@@ -39,7 +47,6 @@ export default function Navigation({ style }: Props) {
     setIsOpen(true);
   }
 
-  const BUTTON_WIDTH = (window.screen.width - 68) / 2;
   return (
     <Container style={style}>
       <Content>
