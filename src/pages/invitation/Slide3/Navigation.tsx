@@ -1,22 +1,25 @@
 import styled from "@emotion/styled";
 import toast from "react-hot-toast";
+import { useTheme } from "@emotion/react";
 // utils
 import { NAVIGATION } from "@/utils/constants";
 import { navigateExternal } from "@/utils/tools";
 // store
 import { useSetAtom } from "jotai";
 import { isDetailWayModalOpenAtom } from "@/components/DetailWayModal";
+// components
+import { AnimationControls, motion } from "framer-motion";
 // assets
 import NaverMapIcon from "@/assets/navigation/naver-map.png";
 import KakaoMapIcon from "@/assets/navigation/kakao-map.png";
 import TMapIcon from "@/assets/navigation/t-map.png";
-import { useTheme } from "@emotion/react";
 
 type NavigationType = "naverMap" | "kakaoMap" | "tmap";
 interface Props {
+  controls: AnimationControls;
   style?: React.CSSProperties;
 }
-export default function Navigation({ style }: Props) {
+export default function Navigation({ controls, style }: Props) {
   const theme = useTheme();
 
   const setIsOpen = useSetAtom(isDetailWayModalOpenAtom);
@@ -50,13 +53,20 @@ export default function Navigation({ style }: Props) {
   return (
     <Container style={style}>
       <Content>
-        <Button
-          type="button"
-          onClick={showDetail}
-          style={{ width: BUTTON_WIDTH }}
+        <motion.div
+          animate={controls}
+          transition={{ delay: 1.1, duration: 0.5 }}
+          onAnimationComplete={() => showDetail()}
+          style={{ borderRadius: 8 }}
         >
-          <p>자세한 설명 및 주차</p>
-        </Button>
+          <Button
+            type="button"
+            onClick={showDetail}
+            style={{ width: BUTTON_WIDTH, background: "unset" }}
+          >
+            <p>자세한 설명 및 주차</p>
+          </Button>
+        </motion.div>
         <Button
           type="button"
           onClick={() => navigateMap("naverMap")}

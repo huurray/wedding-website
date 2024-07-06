@@ -14,6 +14,8 @@ import { motion, useAnimationControls } from "framer-motion";
 
 export default function Slide3() {
   const controls = useAnimationControls();
+  const lastButtonControls = useAnimationControls();
+
   const mainIndex = useAtomValue(mainIndexAtom);
 
   const [init, setInit] = useState(false);
@@ -24,6 +26,10 @@ export default function Slide3() {
     if (init) return;
     if (active) {
       controls.start({ y: [100, 0], opacity: [0, 1] });
+      lastButtonControls.start({
+        scale: [1, 0.9, 1],
+        background: ["#fff", "#b5927455", "#fff"],
+      });
       setInit(true);
     }
   }, [active, init]);
@@ -47,7 +53,7 @@ export default function Slide3() {
         <Calendar date={WEDDING.date} />
       </motion.div>
       <motion.div animate={controls} transition={{ duration: 1.1 }}>
-        <Navigation />
+        <Navigation controls={lastButtonControls} />
       </motion.div>
     </Container>
   );
