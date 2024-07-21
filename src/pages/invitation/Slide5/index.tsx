@@ -51,7 +51,7 @@ export default function Slide5() {
             src={MOVIE.url}
             allowFullScreen
             referrerPolicy="strict-origin-when-cross-origin"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           />
         </div>
       </motion.div>

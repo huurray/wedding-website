@@ -57,7 +57,7 @@ export const NAVIGATION = {
 
 export const MOVIE = {
   title: "허준혁 ❤️ 신승아",
-  url: "https://www.youtube-nocookie.com/embed/F-hAtKz6c0w?si=Nz0aI9iRkJQ6r36R",
+  url: "https://www.youtube-nocookie.com/embed/F-hAtKz6c0w?si=Nz0aI9iRkJQ6r36R&rel=0",
 };
 
 export const SHARE_INFO = {
