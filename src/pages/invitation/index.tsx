@@ -12,6 +12,7 @@ import Slide2 from "./Slide2";
 import Slide3 from "./Slide3";
 import Slide4 from "./Slide4";
 import Slide5 from "./Slide5";
+import Slide6 from "./Slide6";
 // styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -49,6 +50,9 @@ export default function InvitationPage() {
         </SwiperSlide>
         <SwiperSlide>
           <Slide5 />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Slide6 />
         </SwiperSlide>
       </Swiper>
     </Container>

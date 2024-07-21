@@ -55,6 +55,11 @@ export const NAVIGATION = {
   },
 };
 
+export const MOVIE = {
+  title: "허준혁 ❤️ 신승아",
+  url: "https://www.youtube-nocookie.com/embed/F-hAtKz6c0w?si=Nz0aI9iRkJQ6r36R",
+};
+
 export const SHARE_INFO = {
   title: "허준혁 ❤️ 신승아 결혼합니다.",
   text: "",
