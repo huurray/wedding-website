@@ -48,6 +48,7 @@ export default function ImageViewer() {
         type="image"
         toggler={show}
         sources={images}
+        slideshowTime={5000}
         slide={index + 1}
       />
     </Container>
@@ -57,7 +58,7 @@ export default function ImageViewer() {
 const Container = styled.div`
   .fslightbox-toolbar {
     & > div {
-      &:first-of-type {
+      &:nth-of-type(5) {
         display: none;
       }
     }

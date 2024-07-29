@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 // firebase
 import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 // styles
 import "@/styles/reset.css";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -17,5 +18,6 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+getAnalytics(app);
 ReactDOM.createRoot(document.getElementById("root")!).render(<App />);

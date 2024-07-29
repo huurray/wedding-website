@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "@emotion/styled";
 // store
 import { useAtomValue } from "jotai";
@@ -14,16 +14,28 @@ export default function Slide5() {
   const controls = useAnimationControls();
   const mainIndex = useAtomValue(mainIndexAtom);
 
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   const [init, setInit] = useState(false);
 
   const active = mainIndex === 4;
 
   useEffect(() => {
-    if (init) return;
-    if (active) {
-      console.log(11);
-      controls.start({ y: [100, 0], opacity: [0, 1] });
+    if (!init && active) {
+      controls.start({ opacity: [0, 1] });
       setInit(true);
+    }
+
+    if (init && !active) {
+      if (iframeRef.current) {
+        const iframe = iframeRef.current;
+        const iframeWindow = iframe.contentWindow;
+        if (iframeWindow) {
+          iframeWindow.postMessage(
+            '{"event":"command","func":"pauseVideo","args":""}',
+            "*"
+          );
+        }
+      }
     }
   }, [active, init]);
 
@@ -32,7 +44,7 @@ export default function Slide5() {
       <motion.div
         className="header"
         animate={controls}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.5 }}
       >
         <img src={LeafImg} alt="이파리 이미지" />
         <span>저희의 영상을 소개합니다.</span>
@@ -40,10 +52,11 @@ export default function Slide5() {
       <motion.div
         className="video"
         animate={controls}
-        transition={{ duration: 0.9 }}
+        transition={{ duration: 1 }}
       >
         <div className="video-responsive">
           <iframe
+            ref={iframeRef}
             title={MOVIE.title}
             width="640"
             height="360"
@@ -53,6 +66,7 @@ export default function Slide5() {
             referrerPolicy="strict-origin-when-cross-origin"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           />
+          <div className="white-board" />
         </div>
       </motion.div>
     </Container>
@@ -90,18 +104,28 @@ const Container = styled.div`
 
     .video-responsive {
       width: 100%;
-      height: 0;
-      overflow: hidden;
-      padding-bottom: 56.25%;
+      max-width: 100%;
+      aspect-ratio: 16 / 9;
       position: relative;
+      overflow: hidden;
 
       iframe {
         position: absolute;
         left: 0;
         top: 0;
-        height: 100%;
         width: 100%;
-        border-radius: 8px;
+        height: 100%;
+        border-radius: 12px;
+        border: 0;
+      }
+
+      .white-board {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 3px;
+        background-color: ${({ theme }) => theme.colors.background};
       }
     }
   }
