@@ -15,7 +15,7 @@ export default function DetailWayModal() {
 
   return (
     <Modal isOpen={isOpen} close={() => setIsOpen(false)}>
-      <Container>
+      <Container onTouchStart={() => setIsOpen(false)}>
         <div className="title">
           <IoSubwayOutline size={16} />
           <h2>지하철</h2>
